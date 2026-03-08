@@ -12,7 +12,7 @@ import {
 import { ApiV1WhoamiResponseSchema } from './schema/index.js'
 
 function mockImmediateTimeouts() {
-  const setTimeoutMock = vi.fn((callback: () => void) => {
+  const setTimeoutMock = vi.fn((callback: () => void, _ms?: number) => {
     callback()
     return 1 as unknown as ReturnType<typeof setTimeout>
   })
