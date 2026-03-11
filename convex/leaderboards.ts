@@ -1,5 +1,6 @@
 import { v } from 'convex/values'
 import { internal } from './_generated/api'
+import type { Id } from './_generated/dataModel'
 import { internalAction, internalMutation, internalQuery } from './functions'
 import {
   buildTrendingLeaderboard,
@@ -87,7 +88,7 @@ export const rebuildTrendingLeaderboardAction = internalAction({
     }
 
     const entries = Array.from(totals, ([skillId, t]) => ({
-      skillId: skillId as any,
+      skillId: skillId as Id<'skills'>,
       installs: t.installs,
       downloads: t.downloads,
       score: t.installs,
